@@ -1,7 +1,7 @@
 export class Slug {
-  public value: string;
+  public value: string
   constructor(value: string) {
-    this.value = value;
+    this.value = value
   }
 
   /**
@@ -13,15 +13,15 @@ export class Slug {
    */
   static createFromText(text: string) {
     const slugText = text
-      .normalize("NFKD")
+      .normalize('NFKD')
       .toLowerCase()
       .trim()
-      .replace(/\s+/g, "-")
-      .replace(/[^\w-]+/g, "")
-      .replace(/_/g, "-")
-      .replace(/--+/g, "-")
-      .replace(/-$/, "");
+      .replace(/\s+/g, '-')
+      .replace(/[^\w-]+/g, '')
+      .replace(/_/g, '-')
+      .replace(/--+/g, '-')
+      .replace(/-$/, '')
 
-    return new Slug(slugText);
+    return new Slug(slugText)
   }
 }
