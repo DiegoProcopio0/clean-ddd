@@ -12,7 +12,7 @@ export interface QuestionProps {
   content: string
   slug: Slug
   createdAt: Date
-  updateAt?: Date
+  updatedAt?: Date
 }
 
 export class Question extends Entity<QuestionProps> {
@@ -40,8 +40,8 @@ export class Question extends Entity<QuestionProps> {
     return this.props.createdAt
   }
 
-  get updateAt() {
-    return this.props.updateAt
+  get updatedAt() {
+    return this.props.updatedAt
   }
 
   get isNow() {
@@ -53,7 +53,7 @@ export class Question extends Entity<QuestionProps> {
   }
 
   private touch() {
-    this.props.updateAt = new Date()
+    this.props.updatedAt = new Date()
   }
 
   set content(content: string) {
