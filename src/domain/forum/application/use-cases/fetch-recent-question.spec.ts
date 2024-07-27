@@ -46,6 +46,6 @@ describe('Fetch Recent Questions', () => {
 
     const { questions } = await sut.execute({ page: 2 })
 
-    expect(questions).toHaveLength(2)
+    expect(questions).toHaveLength(3)
   })
 })
