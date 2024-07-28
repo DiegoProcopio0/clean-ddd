@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import { Answer } from '../../enterprise/entities/answer'
-import { AnswerRepository } from '../repositories/answer-repository'
+import { AnswersRepository } from '../repositories/answer-repository'
 
 interface AnswerQuestionUseCaseRequest {
   instructorId: string
@@ -14,7 +14,7 @@ interface AnswerQuestionUseCaseResponse {
 }
 
 export class AnswerQuestionUseCase {
-  constructor(private answerRepository: AnswerRepository) {}
+  constructor(private AnswersRepository: AnswersRepository) {}
   async execute({
     instructorId,
     questionId,
@@ -26,7 +26,7 @@ export class AnswerQuestionUseCase {
       questionId: new UniqueEntityId(questionId),
     })
 
-    await this.answerRepository.create(answer)
+    await this.AnswersRepository.create(answer)
 
     return { answer }
   }

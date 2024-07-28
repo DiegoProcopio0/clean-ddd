@@ -1,5 +1,5 @@
 import { Answer } from '../../enterprise/entities/answer'
-import { AnswerRepository } from '../repositories/answer-repository'
+import { AnswersRepository } from '../repositories/answer-repository'
 
 interface FetchQuestionsAnswersUseCaseRequest {
   page: number
@@ -11,13 +11,13 @@ interface FetchQuestionsAnswersUseCaseResponse {
 }
 
 export class FetchQuestionsAnswersUseCase {
-  constructor(private answerRepository: AnswerRepository) {}
+  constructor(private AnswersRepository: AnswersRepository) {}
 
   async execute({
     page,
     questionId,
   }: FetchQuestionsAnswersUseCaseRequest): Promise<FetchQuestionsAnswersUseCaseResponse> {
-    const answers = await this.answerRepository.findManyByQuestionId(
+    const answers = await this.AnswersRepository.findManyByQuestionId(
       questionId,
       { page },
     )

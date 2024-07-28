@@ -1,8 +1,8 @@
 import { PaginationParams } from '@/core/repositories/pagination-params'
-import { AnswerRepository } from '@/domain/forum/application/repositories/answer-repository'
+import { AnswersRepository } from '@/domain/forum/application/repositories/answer-repository'
 import { Answer } from '@/domain/forum/enterprise/entities/answer'
 
-export class InMemoryAnswerRepository implements AnswerRepository {
+export class InMemoryAnswersRepository implements AnswersRepository {
   public items: Answer[] = []
   async findById(id: string) {
     const answer = this.items.find((item) => item.id.toString() === id)

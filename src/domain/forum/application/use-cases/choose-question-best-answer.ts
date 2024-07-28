@@ -1,4 +1,4 @@
-import { AnswerRepository } from '../repositories/answer-repository'
+import { AnswersRepository } from '../repositories/answer-repository'
 import { Question } from '../../enterprise/entities/question'
 import { QuestionsRepository } from '../repositories/question-repository'
 
@@ -14,14 +14,14 @@ interface ChooseQuestionBestAnswerUseCaseResponse {
 export class ChooseQuestionBestAnswerUseCase {
   constructor(
     private questionRepository: QuestionsRepository,
-    private answerRepository: AnswerRepository,
+    private AnswersRepository: AnswersRepository,
   ) {}
 
   async execute({
     answerId,
     authorId,
   }: ChooseQuestionBestAnswerUseCaseRequest): Promise<ChooseQuestionBestAnswerUseCaseResponse> {
-    const answer = await this.answerRepository.findById(answerId)
+    const answer = await this.AnswersRepository.findById(answerId)
 
     if (!answer) {
       throw new Error('Answer not found.')
