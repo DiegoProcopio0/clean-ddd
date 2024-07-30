@@ -5,7 +5,8 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
-    "no-useless-constructor": "off"
+    "no-useless-constructor": "off",
+    "no-use-before-define": "off"
   },
   "env": {
     "vitest-globals/env": true
