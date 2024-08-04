@@ -20,10 +20,14 @@ describe('Create Question', () => {
 
     expect(result.isRight()).toBe(true)
     expect(inMemoryQuestionRepository.items[0]).toEqual(result.value?.question)
-    expect(inMemoryQuestionRepository.items[0].attachment).toHaveLength(2)
-    expect(inMemoryQuestionRepository.items[0].attachment).toEqual([
-      expect.objectContaining({ attachmentId: new UniqueEntityId('1') }),
-      expect.objectContaining({ attachmentId: new UniqueEntityId('2') }),
-    ])
+    expect(
+      inMemoryQuestionRepository.items[0].attachment.currentItems,
+    ).toHaveLength(2)
+    expect(inMemoryQuestionRepository.items[0].attachment.currentItems).toEqual(
+      [
+        expect.objectContaining({ attachmentId: new UniqueEntityId('1') }),
+        expect.objectContaining({ attachmentId: new UniqueEntityId('2') }),
+      ],
+    )
   })
 })
