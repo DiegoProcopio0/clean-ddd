@@ -80,6 +80,7 @@ export class Question extends AggregateRoot<QuestionProps> {
 
   set attachment(attachment: QuestionAttachmentList) {
     this.props.attachment = attachment
+    this.touch()
   }
 
   static create(
