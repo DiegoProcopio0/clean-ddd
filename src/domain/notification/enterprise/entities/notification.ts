@@ -3,7 +3,7 @@ import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import { Optional } from '@/core/types/optional'
 
 interface NotificationProps {
-  recipientId: string
+  recipientId: UniqueEntityId
   title: string
   content: string
   readAt?: Date
